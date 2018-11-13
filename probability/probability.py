@@ -3,14 +3,14 @@
 # other doors there is not. If a contestant is able to guess correctly where
 # the car is he can have the car as a prize.
 #
-# Assume, that the contestant selects one of the 3 doors. The door is not 
+# Assume, that the contestant selects one of the 3 doors. The door is not
 # opened immediately. Instead the host of the contest opens one of the
-# remaining other two doors. If the car is behind the door selected by the 
-# host the contestant will not get the prize: nobody wins. 
-# However, if the space behind the host's door is empty 
-# the contestant is given an opportunity to either stick to the door he 
+# remaining other two doors. If the car is behind the door selected by the
+# host the contestant will not get the prize: nobody wins.
+# However, if the space behind the host's door is empty
+# the contestant is given an opportunity to either stick to the door he
 # originally selected or to change his mind and choose the other remaining
-# closed door. What should he do to maximize his odds of winning the new car? 
+# closed door. What should he do to maximize his odds of winning the new car?
 #
 # To make the experiment we imagine two players with opposite tactics:
 #
@@ -25,25 +25,26 @@ host_wins = 0
 jari_wins = 0
 aleksi_wins = 0
 for i in range(100000):
-    doors = ['Empty','Empty','Empty']
+    doors = ['Empty', 'Empty', 'Empty']
     # randint(0,2) returns a random number r so that 0 <= r <= 2
-    doors[randint(0,2)] = 'Car' # Place the car behind one of the 3 doors.
+    doors[randint(0, 2)] = 'Car'  # Place the car behind one of the 3 doors.
     # print(doors)
 
-    jaris_selection = randint(0,2) # The player makes his original selection
-    hosts_selection = jaris_selection # Initialize to the same as Jari's choice
+    jaris_selection = randint(0, 2)  # The player makes his original selection
+    hosts_selection = jaris_selection  # Initialize to the same as Jari's choice
     # The host selects one of the two remaing doors. This is acomplished by
     # re-selecting at random until other than the door selected by Jari is
     # 'found'.
     while hosts_selection == jaris_selection:
-        hosts_selection = randint(0,2) 
-    # Aleksi gets the door, which has been selected neither by Jari 
+        hosts_selection = randint(0, 2)
+    # Aleksi gets the door, which has been selected neither by Jari
     # nor the host.
-    aleksis_selection = jaris_selection # Initialize to the same as Jari's.
+    aleksis_selection = jaris_selection  # Initialize to the same as Jari's.
     # Keep moving until the last unselected door is found.
     while aleksis_selection == jaris_selection or aleksis_selection == hosts_selection:
-        aleksis_selection = (aleksis_selection + 1) % 3 # Try 0,1,2 until found.
-    ostring = f"Jari's selection = {jaris_selection}" + "\n" 
+        # Try 0,1,2 until found.
+        aleksis_selection = (aleksis_selection + 1) % 3
+    ostring = f"Jari's selection = {jaris_selection}" + "\n"
     ostring += f"Host's selection = {hosts_selection}" + "\n"
     ostring += f"Aleksi's selection = {aleksis_selection}"
     # print(ostring)
