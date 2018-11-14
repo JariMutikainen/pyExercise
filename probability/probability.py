@@ -21,6 +21,10 @@
 # Let's see who wins more often.
 
 from random import randint
+# When the following constant is set to True, the host knows, 
+# where the car is, and he will always select a door with no
+# car behind it.
+HOST_KNOWS = True  
 host_wins = 0
 jari_wins = 0
 aleksi_wins = 0
@@ -31,17 +35,29 @@ for i in range(100000):
     # print(doors)
 
     jaris_selection = randint(0, 2)  # The player makes his original selection
-    hosts_selection = jaris_selection  # Initialize to the same as Jari's choice
-    # The host selects one of the two remaing doors. This is acomplished by
-    # re-selecting at random until other than the door selected by Jari is
-    # 'found'.
-    while hosts_selection == jaris_selection:
-        hosts_selection = randint(0, 2)
+    # Initialize to the same as Jari's choice:
+    hosts_selection = jaris_selection
+    if HOST_KNOWS:
+        # The host selects one of the two remaing doors with no car behind it. 
+        # This is accomplished by re-selecting until such a door is 'found'.
+        while ( (hosts_selection == jaris_selection) or
+                (doors[hosts_selection] == 'Car')):
+            # Keep moving until a door with no car behind it is 'found'.
+            hosts_selection = (hosts_selection + 1) % 3 # resulting range: 0-2
+
+
+
+
+
+
+        while hosts_selection == jaris_selection:
+            hosts_selection = randint(0, 2)
     # Aleksi gets the door, which has been selected neither by Jari
     # nor the host.
     aleksis_selection = jaris_selection  # Initialize to the same as Jari's.
     # Keep moving until the last unselected door is found.
-    while aleksis_selection == jaris_selection or aleksis_selection == hosts_selection:
+    while (     (aleksis_selection == jaris_selection) or
+                (aleksis_selection == hosts_selection)):
         # Try 0,1,2 until found.
         aleksis_selection = (aleksis_selection + 1) % 3
     ostring = f"Jari's selection = {jaris_selection}" + "\n"
