@@ -39,13 +39,15 @@ class Deck:
         return self.cards
 
     def _deal(self, num):
-        i = 0
-        card_list = []
-        while i < num and self.count() > 0:
-            card_list.append(self.cards.pop())
-            i += 1
-        if self.count() == 0 and i < num:
+        if self.count() == 0:
             raise ValueError('All cards have been dealt.')
+            return []
+        # Make sure you are not dealing out more cards than what
+        # is available
+        removals = num if num < self.count() else self.count()
+        card_list = []
+        for i in range(removals):
+            card_list.append(self.cards.pop())
         return card_list
 
     def deal_card(self):
