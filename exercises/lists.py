@@ -26,9 +26,10 @@ def reverse_difference(numlist):
     return [n-r for n, r in zip(numlist, reversed)]
 
 
-def matrix_add():
+def matrix_add(m1, m2):
     """Add corresponding numbers in given 2-D matrices."""
-
+    #return list(zip(m1, m2))
+    return []
 
 def transpose():
     """Return a transposed version of given list of lists."""
@@ -48,3 +49,6 @@ def triples():
 #i_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
 #print(flatten(i_matrix))
 # print(reverse_difference([1, 2, 3, 4, 5]))
+print(matrix_add([[6, 6], [3, 1]], [[1, 2], [3, 4]]))
+print(matrix_add([[1, 2, 3], [4, 5, 6]], [[-1, -2, -3], [-4, -5, -6]]))
+
