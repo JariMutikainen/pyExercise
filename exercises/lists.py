@@ -11,9 +11,14 @@ def power_list(numbers):
     """Return a list that contains each number raised to the i-th power."""
     return [base ** exponent for exponent, base in enumerate(numbers)]
 
-def flatten():
+def flatten(im):
     """Return a flattened version of the given 2-D matrix (list-of-lists)."""
-
+    o_matrix = []
+    for lst in im:
+        for elem in lst:
+            o_matrix.append(elem)
+    return o_matrix
+ 
 
 def reverse_difference():
     """Return list subtracted from the reverse of itself."""
@@ -38,3 +43,5 @@ def triples():
 # Testing
 # print(get_vowel_names(['Jari', 'Anne', 'Minna', 'eeva']))
 # print(power_list([3,4,5.4,6]))
+#i_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+#print(flatten(i_matrix))
