@@ -1,8 +1,10 @@
 """List comprehension exercises"""
 
 
-def get_vowel_names():
+def get_vowel_names(names):
     """Return a list containing all names given that start with a vowel."""
+    vowels = 'aeiouyAEIOUY'
+    return [name for name in names if name[0] in vowels]
 
 
 def power_list():
@@ -31,3 +33,7 @@ def get_factors():
 
 def triples():
     """Return list of Pythagorean triples less than input num."""
+
+
+# Testing
+# print(get_vowel_names(['Jari', 'Anne', 'Minna', 'eeva']))
