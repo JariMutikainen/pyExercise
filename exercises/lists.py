@@ -7,9 +7,9 @@ def get_vowel_names(names):
     return [name for name in names if name[0] in vowels]
 
 
-def power_list():
+def power_list(numbers):
     """Return a list that contains each number raised to the i-th power."""
-
+    return [base ** exponent for exponent, base in enumerate(numbers)]
 
 def flatten():
     """Return a flattened version of the given 2-D matrix (list-of-lists)."""
@@ -37,3 +37,4 @@ def triples():
 
 # Testing
 # print(get_vowel_names(['Jari', 'Anne', 'Minna', 'eeva']))
+# print(power_list([3,4,5.4,6]))
