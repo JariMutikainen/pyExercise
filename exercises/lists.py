@@ -20,8 +20,10 @@ def flatten(im):
     return o_matrix
  
 
-def reverse_difference():
+def reverse_difference(numlist):
     """Return list subtracted from the reverse of itself."""
+    reversed = numlist[::-1]
+    return [n-r for n, r in zip(numlist, reversed)]
 
 
 def matrix_add():
@@ -45,3 +47,4 @@ def triples():
 # print(power_list([3,4,5.4,6]))
 #i_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
 #print(flatten(i_matrix))
+# print(reverse_difference([1, 2, 3, 4, 5]))
