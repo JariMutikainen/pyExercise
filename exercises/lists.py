@@ -42,8 +42,10 @@ def matrix_add(m1, m2):
     ]
     return summed_rows
 
-def transpose():
+def transpose(matrix):
     """Return a transposed version of given list of lists."""
+    transposed = [list(item) for item in list(zip(*matrix))]
+    return transposed
 
 
 def get_factors():
@@ -63,4 +65,5 @@ def triples():
 #print(matrix_add([[6, 6], [3, 1]], [[1, 2], [3, 4]]))
 #print(matrix_add([[1, 2, 3], [4, 5, 6]], [[-1, -2, -3], [-4, -5, -6]]))
 #print(matrix_add([[6, 6], [3, 1], [2,2]], [[1, 2], [3, 4], [2,2]]))
+#print(transpose([['a','b','c'],['d','e','f'],['g','h','i']]))
 
