@@ -28,8 +28,19 @@ def reverse_difference(numlist):
 
 def matrix_add(m1, m2):
     """Add corresponding numbers in given 2-D matrices."""
-    #return list(zip(m1, m2))
-    return []
+    def sum_row(r1, r2):
+        """Takes in 2 rows (= tuples) and returns the sum (a list) of them 
+           as calculated element by element."""
+        return [e1 + e2 for e1, e2 in zip(r1, r2)]
+    rows = tuple(zip(m1, m2))
+    # summed_rows = []
+    # for row in rows:
+    #     summed_rows.append(sum_row(row[0],row[1]))
+    summed_rows = [
+        sum_row(row[0],row[1])
+        for row in rows
+    ]
+    return summed_rows
 
 def transpose():
     """Return a transposed version of given list of lists."""
@@ -49,6 +60,7 @@ def triples():
 #i_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
 #print(flatten(i_matrix))
 # print(reverse_difference([1, 2, 3, 4, 5]))
-print(matrix_add([[6, 6], [3, 1]], [[1, 2], [3, 4]]))
-print(matrix_add([[1, 2, 3], [4, 5, 6]], [[-1, -2, -3], [-4, -5, -6]]))
+#print(matrix_add([[6, 6], [3, 1]], [[1, 2], [3, 4]]))
+#print(matrix_add([[1, 2, 3], [4, 5, 6]], [[-1, -2, -3], [-4, -5, -6]]))
+#print(matrix_add([[6, 6], [3, 1], [2,2]], [[1, 2], [3, 4], [2,2]]))
 
