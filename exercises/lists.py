@@ -52,8 +52,17 @@ def get_factors(num):
     """Return a list of all factors of the given number."""
     return [n for n in range(1,num+1) if num % n == 0]
 
-def triples():
+def triples(num):
     """Return list of Pythagorean triples less than input num."""
+    found_cs = []
+    triple_tuples = []
+    for a in range(1, num):
+        for b in range(1, num):
+            for c in range(1, num):
+                if a**2 + b**2 == c**2 and c not in found_cs:
+                    triple_tuples.append((a, b, c))
+                    found_cs.append(c)
+    return triple_tuples
 
 
 # Testing
@@ -67,4 +76,6 @@ def triples():
 #print(matrix_add([[6, 6], [3, 1], [2,2]], [[1, 2], [3, 4], [2,2]]))
 #print(transpose([['a','b','c'],['d','e','f'],['g','h','i']]))
 #print(get_factors(100))
+#print(triples(15))
+#print(triples(30))
 
