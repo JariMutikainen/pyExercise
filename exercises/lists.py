@@ -48,9 +48,9 @@ def transpose(matrix):
     return transposed
 
 
-def get_factors():
+def get_factors(num):
     """Return a list of all factors of the given number."""
-
+    return [n for n in range(1,num+1) if num % n == 0]
 
 def triples():
     """Return list of Pythagorean triples less than input num."""
@@ -66,4 +66,5 @@ def triples():
 #print(matrix_add([[1, 2, 3], [4, 5, 6]], [[-1, -2, -3], [-4, -5, -6]]))
 #print(matrix_add([[6, 6], [3, 1], [2,2]], [[1, 2], [3, 4], [2,2]]))
 #print(transpose([['a','b','c'],['d','e','f'],['g','h','i']]))
+#print(get_factors(100))
 
