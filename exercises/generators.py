@@ -1,9 +1,9 @@
 """Generator Exercises."""
 
 
-def is_prime():
+def is_prime(number):
     """Return True if candidate number is prime."""
-
+    return not any(n for n in range(2,number) if number % n == 0) 
 
 def all_together():
     """String together all items from the given iterables."""
@@ -27,3 +27,7 @@ def first_prime_over():
 
 def is_anagram():
     """Return True if the given words are anagrams."""
+
+# Testing
+print(is_prime(21))
+print(is_prime(23))
