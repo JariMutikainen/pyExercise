@@ -18,9 +18,11 @@ def interleave(i1, i2):
             for pair in zip(i1, i2)
             for n in pair)
 
-def translate():
+def translate(sentence):
     """Return a transliterated version of the given sentence."""
-
+    words = {'esta': 'is', 'la': 'the', 'en': 'in',
+             'gato': 'cat', 'casa': 'house', 'el': 'the'}
+    return words
 
 def parse_ranges():
     """Return a list of numbers corresponding to number ranges in a string"""
@@ -42,3 +44,4 @@ def is_anagram():
 # print(list(interleave([1, 2, 3, 4], [5, 6, 7, 8])))
 # nums = [1, 2, 3, 4]
 # print(list(interleave(nums, (n**2 for n in nums))))
+translate("el gato esta en la casa")
