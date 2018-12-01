@@ -12,9 +12,11 @@ def all_together(*args):
             for x in iterable)   
 
 
-def interleave():
+def interleave(i1, i2):
     """Return iterable of one item at a time from each list."""
-
+    return (n
+            for pair in zip(i1, i2)
+            for n in pair)
 
 def translate():
     """Return a transliterated version of the given sentence."""
@@ -37,3 +39,6 @@ def is_anagram():
 # print(list(all_together([1, 2], (3, 4), "hello")))
 # nums = all_together([1, 2], (3, 4))
 # print(list(all_together(nums, nums)))
+# print(list(interleave([1, 2, 3, 4], [5, 6, 7, 8])))
+# nums = [1, 2, 3, 4]
+# print(list(interleave(nums, (n**2 for n in nums))))
