@@ -5,8 +5,11 @@ def is_prime(number):
     """Return True if candidate number is prime."""
     return not any(n for n in range(2,number) if number % n == 0) 
 
-def all_together():
+def all_together(*args):
     """String together all items from the given iterables."""
+    return (x
+            for iterable in args
+            for x in iterable)   
 
 
 def interleave():
@@ -29,5 +32,8 @@ def is_anagram():
     """Return True if the given words are anagrams."""
 
 # Testing
-print(is_prime(21))
-print(is_prime(23))
+# print(is_prime(21))
+# print(is_prime(23))
+# print(list(all_together([1, 2], (3, 4), "hello")))
+# nums = all_together([1, 2], (3, 4))
+# print(list(all_together(nums, nums)))
