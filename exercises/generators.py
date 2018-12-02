@@ -39,7 +39,15 @@ def translate(sentence):
 def parse_ranges(ranges_string):
     """Return a list of numbers corresponding to number ranges in a string"""
     ranges = ranges_string.split(',')
-    print(ranges)
+    parsed_range = []
+    for rng in ranges:
+        (min, max) = rng.split('-')
+        mi = int(min)
+        ma = int(max) + 1 # Add 1 because range() is non-inclusive at the max
+        parsed_range.extend(range(mi, ma))
+
+    return iter(parsed_range)
+
 
 def first_prime_over():
     """Return the first prime number over a given number."""
@@ -57,6 +65,6 @@ def is_anagram():
 # print(list(interleave([1, 2, 3, 4], [5, 6, 7, 8])))
 # nums = [1, 2, 3, 4]
 # print(list(interleave(nums, (n**2 for n in nums))))
-#print(translate("el gato esta en la casa"))
-parse_ranges('1-2,4-4,8-10')
-parse_ranges('0-0,4-8,20-21,43-45')
+# print(translate("el gato esta en la casa"))
+# print(parse_ranges('1-2,4-4,8-10'))
+# print(parse_ranges('0-0,4-8,20-21,43-45'))
