@@ -20,9 +20,21 @@ def interleave(i1, i2):
 
 def translate(sentence):
     """Return a transliterated version of the given sentence."""
+    word_list = sentence.split()
     words = {'esta': 'is', 'la': 'the', 'en': 'in',
              'gato': 'cat', 'casa': 'house', 'el': 'the'}
-    return words
+    # Let the 1st word decide which way to translate.
+    if word_list[0] in words.keys(): 
+        spanish2english = True     
+    else:
+        spanish2english = False     
+        
+    if spanish2english:
+        translated_words = (words[s_word] for s_word in word_list)
+        translated_sentence = ''
+        for w in translated_words:
+            translated_sentence += (w + ' ')
+    return translated_sentence[:-1] # Strip the trailing space
 
 def parse_ranges():
     """Return a list of numbers corresponding to number ranges in a string"""
@@ -44,4 +56,4 @@ def is_anagram():
 # print(list(interleave([1, 2, 3, 4], [5, 6, 7, 8])))
 # nums = [1, 2, 3, 4]
 # print(list(interleave(nums, (n**2 for n in nums))))
-translate("el gato esta en la casa")
+#print(translate("el gato esta en la casa"))
