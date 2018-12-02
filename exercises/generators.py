@@ -36,9 +36,10 @@ def translate(sentence):
             translated_sentence += (w + ' ')
     return translated_sentence[:-1] # Strip the trailing space
 
-def parse_ranges():
+def parse_ranges(ranges_string):
     """Return a list of numbers corresponding to number ranges in a string"""
-
+    ranges = ranges_string.split(',')
+    print(ranges)
 
 def first_prime_over():
     """Return the first prime number over a given number."""
@@ -57,3 +58,5 @@ def is_anagram():
 # nums = [1, 2, 3, 4]
 # print(list(interleave(nums, (n**2 for n in nums))))
 #print(translate("el gato esta en la casa"))
+parse_ranges('1-2,4-4,8-10')
+parse_ranges('0-0,4-8,20-21,43-45')
