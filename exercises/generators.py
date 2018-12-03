@@ -49,10 +49,20 @@ def parse_ranges(ranges_string):
     return iter(parsed_range)
 
 
-def first_prime_over():
+def first_prime_over(num):
     """Return the first prime number over a given number."""
+    def is_prime(m):
+        return not any(x for x in range(2,m) if m % x == 0)
 
+    def prime_gen(n):
+        while True:
+            if is_prime(n):
+                yield n
+            else:
+                n += 1
 
+    return next(prime_gen(num))
+        
 def is_anagram():
     """Return True if the given words are anagrams."""
 
@@ -68,3 +78,4 @@ def is_anagram():
 # print(translate("el gato esta en la casa"))
 # print(parse_ranges('1-2,4-4,8-10'))
 # print(parse_ranges('0-0,4-8,20-21,43-45'))
+# print(first_prime_over(1000000))
