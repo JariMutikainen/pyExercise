@@ -6,8 +6,12 @@ def flip_dict(orig_dict):
     return {v: k for k, v in orig_dict.items()} 
 
 
-def get_ascii_codes():
+def get_ascii_codes(list_of_strings):
     """Return a dictionary mapping the strings to ASCII codes."""
+    output_dictionary = {}
+    for string_ in list_of_strings:
+        output_dictionary.update({string_: [ord(ch) for ch in string_]})
+    return output_dictionary
 
 
 def dict_from_truple():
@@ -24,3 +28,5 @@ def get_all_factors():
 # Testing
 # print(flip_dict(
       # {'Python': "2015-09-15", 'Java': "2015-09-14", 'C': "2015-09-13"}))
+# words = ["hello", "bye", "yes", "no", "python"]
+# print(get_ascii_codes(words))
