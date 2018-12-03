@@ -21,8 +21,12 @@ def dict_from_truple(list_of_triples):
 
 
 
-def dict_from_tuple():
+def dict_from_tuple(list_of_tuples):
     """Turn multi-item tuples into a dictionary of two-valued tuples."""
+    output = {}
+    for tuple_ in list_of_tuples:
+        output[tuple_[0]] = tuple_[1:]
+    return output
 
 
 def get_all_factors():
@@ -34,3 +38,5 @@ def get_all_factors():
 # words = ["hello", "bye", "yes", "no", "python"]
 # print(get_ascii_codes(words))
 # print(dict_from_truple([(1, 2, 3), (4, 5, 6), (7, 8, 9)]))
+# print(dict_from_tuple([(1, 2, 3, 4), (5, 6, 7, 8)]))
+# print(dict_from_tuple([(1, 2, 3), (4, 5, 6), (7, 8, 9)]))
