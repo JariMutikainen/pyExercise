@@ -63,8 +63,13 @@ def first_prime_over(num):
 
     return next(prime_gen(num))
         
-def is_anagram():
+def is_anagram(in1, in2):
     """Return True if the given words are anagrams."""
+    letters1 = (ch.lower() for ch in in1 if ch.isalpha())
+    letters2 = (ch.lower() for ch in in2 if ch.isalpha())
+    # print(sorted(letters1), ' ', sorted(letters2))
+
+    return sorted(letters1) == sorted(letters2)
 
 # Testing
 # print(is_prime(21))
@@ -79,3 +84,11 @@ def is_anagram():
 # print(parse_ranges('1-2,4-4,8-10'))
 # print(parse_ranges('0-0,4-8,20-21,43-45'))
 # print(first_prime_over(1000000))
+# print(is_anagram("tea", "eat")) # True
+# print(is_anagram("tea", "treat")) # False
+# print(is_anagram("Listen", "silent")) # True
+# print(is_anagram("coins kept", "in pockets")) # True
+# print(is_anagram("a diet", "I'd eat")) # True
+
+
+
