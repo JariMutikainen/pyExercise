@@ -24,12 +24,15 @@ class Deck:
                   '9', '10', 'J', 'Q', 'K')
         self.cards = [Card(val, sui) for sui in suits for val in values]
 
-    def count(self):
-        return len(self.cards)
-
     def __repr__(self):
         # return f"Deck of {self.count()} cards"
         return "Deck of {} cards".format(self.count())
+
+    def __iter__(self):
+        return iter(self.cards)
+
+    def count(self):
+        return len(self.cards)
 
     def shuffle(self):
         if self.count() != 52:
