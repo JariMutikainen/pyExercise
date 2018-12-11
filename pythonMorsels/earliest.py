@@ -13,15 +13,7 @@ def get_earliest(*args):
         month, day, year = date.split('/')
         return int(int(year) * 356 + int(month) * 30.5 + int(day))
 
-    earliest = args[0]
-    for date in args:
-        if date2days(date) < date2days(earliest):
-            earliest = date
-
-    return earliest
-
-
-
+    return sorted(args, key= lambda date: date2days(date))[0]
 
 # Testing
 #date = "01/27/1756"
