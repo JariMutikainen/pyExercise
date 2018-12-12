@@ -1,8 +1,0 @@
-Hei vaan
-: 9 2
-Numerot 1 ja 2.
-: 16 4
-Sama se, vaikka sataa
-: 22 4
-
-: 1 0
