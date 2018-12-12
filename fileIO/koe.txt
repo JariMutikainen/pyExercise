@@ -1,4 +1,4 @@
-Hei vaan
-Numerot 1 ja 2.
-Sama se, vaikka sataa
+Hei vaan Alice
+Alice tuntee jo numerot 1 ja 2.
+Sama se, Alice huokaisi, vaikka sataa.
 
