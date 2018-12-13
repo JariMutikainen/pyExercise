@@ -7,14 +7,19 @@
 # Colt,Steele
 # Dwayne,Johnson
 
+# THIS PROGRAM DOES NOT WORK IN WINDOWS PROPERLY. IT ADDS AN EXTRA CHARACTER
+# '^M' INTO THE END OF LINE.
+
 from csv import writer
 
 def add_user(first_name, last_name):
-    with open('users.csv', 'a') as f:
+    with open('users.csv', 'a', newline='') as f:
         csv_writer = writer(f)
         csv_writer.writerow([first_name, last_name])
 
 
 # Testing
-add_user('Jari', 'Mutikainen')
+add_user('Teemu', 'Selanne')
+add_user('Mickey', 'Mouse')
+add_user('Donald', 'Duck')
 
