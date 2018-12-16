@@ -16,14 +16,21 @@ class Record:
     date: The date of the session, 
     time: The time spent on swimming 2km with the free style stroke,
     weight: The weight of the swimmer.
+    
+    Usage: r1 = Record('15.12.2018', '43:07', '90.4')
+
     '''
     def __init__(self, date, time, weight):
-        self.date = date
-        self.time = time
-        self.weight = weight
+        self.date = date # A string
+        self.time = time # A string
+        self.weight = weight # A string
+        self._mins, self._secs = self.time.split(':')
+        self.minutes = int(self._mins)
+        self.seconds = int(self._secs)
+        self.kilos = float(self.weight)
 
     def __repr__(self):
-        return self.date + ', ' + self.time + ', ' + self.weight + 'kg'
+        return f'({self.date}, {self.time}, {self.weight}kg)'
 
 class SwimDataBase:
     '''
@@ -31,10 +38,13 @@ class SwimDataBase:
     data of one swimming session. The existing data is kept on
     the disk in a .csv file, but it is read into an internal list
     when an instance of the SwimDataBase class is created.
+
+    Usage: db = SwimDataBase('swim_data.csv')
+
     '''
     def __init__(self, filename):
         self.filename = filename
-        self.db = []
+        self.db = [] # The elements of this list are of the class Record.
 
     def __repr__(self):
         self.s1 = f'SwimDataBase stored in the file "{self.filename}"' 
@@ -42,23 +52,13 @@ class SwimDataBase:
         return self.s1 + self.s2
 
 
-#with open('swim_data.csv', 'a') as fp:
-    #year = '2011'
-    #answ = 'Overwrite me.'
-    ## An empty input string will terminate the program.
-    #while True:
-        #answ = input('Use format 20 12 4 43 87.4 ----> ')
-        #if answ:
-            #day, month, minutes, seconds, kilos = answ.split()
-        #else:
-            #break
-        #date = day + '.' + month + '.' + year
-        #time = '4' + minutes + ':' + seconds
-        #fp.write(date + ',' + time + ',' + kilos + '\n')
 
-r1 = Record('15.12.2018', '43:07', '90.4')
-print(r1)
-db = SwimDataBase('swim_data.csv')
-print(db)
-help(SwimDataBase)
 
+
+#r1 = Record('15.12.2018', '43:07', '90.4')
+#print(r1)
+#print(r1.minutes, r1.seconds, r1.weight)
+#db = SwimDataBase('swim_data.csv')
+#print(db)
+#help(SwimDataBase)
+#
