@@ -51,14 +51,36 @@ class SwimDataBase:
         self.s2 = f' consists of {len(self.db)} records.'
         return self.s1 + self.s2
 
+    def import_data_from_disk(self):
+        'Populates the internal list using the existing data on the disk.'
+        with open(self.filename, 'r') as fp:
+            for line in fp:
+                date, time, weight = line.split(',')
+                self.db.append(Record(date, time, weight[:-1])) # Strip '\n'
 
+    def export_data_into_disk(self):
+        '''
+        Writes the contents of the internal list into the .csv file
+        on the disk.
+        '''
+        with open(self.filename, 'w') as fp:
+            for record in self.db:
+                d = record.date
+                t = record.time
+                w = record.weight
+                fp.write(f'{d},{t},{w}\n')
 
+    def show_tail(self, n=1):
+        'Prints the last n lines of the internal list. n must be an int.'
+        # Can't print more than the size of the list
+        lines = min(n,len(self.db)) 
+        start = len(self.db) - lines
+        stop = len(self.db)
+        for n in range(start, stop):
+            print(f'{n}: {self.db[n]}')
 
+    def append_new_record(self, item):
+        '''Appends a new item of the class Record into the tail of the
+         internal list'''
+        self.db.append(item)
 
-#r1 = Record('15.12.2018', '43:07', '90.4')
-#print(r1)
-#print(r1.minutes, r1.seconds, r1.weight)
-#db = SwimDataBase('swim_data.csv')
-#print(db)
-#help(SwimDataBase)
-#
