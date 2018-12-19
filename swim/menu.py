@@ -54,7 +54,7 @@ class Menu:
             calls the method append_new_record() to add it into the
             tail of the instance attribute list of the data base.
         '''
-        year = '2014'
+        year = '2015'
         answ = 'Overwrite me.'
         # An empty input string will terminate the program.
         while True:
