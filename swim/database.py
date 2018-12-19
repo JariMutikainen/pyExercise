@@ -47,9 +47,9 @@ class SwimDataBase:
         self.db = [] # The elements of this list are of the class Record.
 
     def __repr__(self):
-        self.s1 = f'SwimDataBase stored in the file "{self.filename}"' 
-        self.s2 = f' consists of {len(self.db)} records.'
-        return self.s1 + self.s2
+        s1 = f'SwimDataBase stored in the file "{self.filename}"' 
+        s2 = f' consists of {len(self.db)} records.'
+        return s1 + s2
 
     def import_data_from_disk(self):
         'Populates the internal list using the existing data on the disk.'
@@ -73,11 +73,9 @@ class SwimDataBase:
     def show_tail(self, n=1):
         'Prints the last n lines of the internal list. n must be an int.'
         # Can't print more than the size of the list
-        lines = min(n,len(self.db)) 
-        start = len(self.db) - lines
-        stop = len(self.db)
-        for n in range(start, stop):
-            print(f'{n}: {self.db[n]}')
+        n = min(n,len(self.db)) 
+        for record in self.db[-n:]: # Slice out the last n records.
+            print(record)
 
     def append_new_record(self, item):
         '''Appends a new item of the class Record into the tail of the
