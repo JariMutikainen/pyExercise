@@ -38,7 +38,7 @@ class Menu:
                 print('Illegal selection. Try again.')
                 self.display_menu()
                 choice = input('Enter your selection: ')
-            self.choices[choice]() # Adding () triggers one of the methods.
+            self.choices[choice]() # Adding () calls one of the methods.
 
     def import_data(self):
         self.d1.import_data_from_disk()
@@ -46,7 +46,7 @@ class Menu:
 
     def show_tail_rows(self):
         num = input('Enter the number of the last records to be shown: ')
-        print('The requested records in the current data base are as follows:')
+        print(f'The last {num} records are as follows:')
         self.d1.show_tail(int(num))
             
     def add_records(self):
@@ -54,13 +54,17 @@ class Menu:
             calls the method append_new_record() to add it into the
             tail of the instance attribute list of the data base.
         '''
-        year = '2012'
+        year = '2018'
         answ = 'Overwrite me.'
         # An empty input string will terminate the program.
         while True:
             answ = input('Use format 20 12 4 43 87.4 ----> ')
             if answ:
-                day, month, minutes, seconds, kilos = answ.split()
+                try:
+                    day, month, minutes, seconds, kilos = answ.split()
+                except ValueError:
+                    print('Incorrect number of arguments.')
+                    print('The input was ignored. Try again.')
             else:
                 break
             date = day + '.' + month + '.' + year
