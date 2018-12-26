@@ -23,17 +23,17 @@
 from sys import argv
 import re
 
-#print(f'{argv[0]}, {argv[1]}, {argv[2]}')
-if len(argv) != 3:
-    raise BaseException('Use: python fix_csv.py <i_file> <o_file>')
-
+print(f'{argv[0]}, {argv[1]}, {argv[2]}')
 ifile = argv[1]
 ofile = argv[2]
+regexp_obj = re.compile(r'^([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)$')
 with open(ifile) as rfp:
     with open(ofile, 'w') as wfp:
-        for iline in rfp:
-            oline = re.sub(r'[|]', ',', iline)
-            #print(oline, end='')
+        for line in rfp:
+            line = line.strip('\n') # Remove the trailing \n
+            match_obj = regexp_obj.search(line)
+            oline = f'{match_obj[1]},{match_obj[2]},{match_obj[3]},'
+            oline += f'{match_obj[4]},{match_obj[5]}\n'
             wfp.write(oline)
 
 
