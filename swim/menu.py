@@ -68,6 +68,12 @@ class Menu:
             else:
                 break
             date = day + '.' + month + '.' + year
+            # Bug fix by Jari M. 28.12.2018.
+            # An input feed of: 20 12 4 7 90.5 must result in
+            # 20.12.2018,44:07,90.5 as opposed to
+            # 20.12.2018,44:7,90.5
+            if int(seconds) < 10:
+                seconds = '0' + seconds[-1] 
             time = '4' + minutes + ':' + seconds
             self.d1.append_new_record(Record(date, time, kilos))
 
