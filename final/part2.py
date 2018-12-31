@@ -110,3 +110,37 @@ def truncate(i_str, n):
 #print(truncate("Yo",100)) # "Yo"
 #print(truncate("Holy guacamole!", 152)) # "Holy guacamole!"
 
+# 6. Write a function two_list_dictionary(), which takes in two lists:
+# keys and values. Return a dictionary, which combines the two lists.
+# If there are too many keys insert null for their values. If there are
+# too many values, ignore the excess values.
+def two_list_dictionary(keys_, values_):
+    # Fill in None for the missing values.
+    while len(values_) < len(keys_):
+        values_ += [None]
+
+    return {k: v for k, v in zip(keys_, values_)}
+
+# Testing
+#print(two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])) # {'a': 1, 'b': 2, 'c': 3, 'd': None}
+#print(two_list_dictionary(['a', 'b', 'c']  , [1, 2, 3, 4])) # {'a': 1, 'b': 2, 'c': 3}
+#print(two_list_dictionary(['x', 'y', 'z']  , [1,2])) # {'x': 1, 'y': 2, 'z': None}
+
+# 7. Write a function range_in_list(), which returns the sum of list elements
+# between the start and end indicies (inclusive). The default value for 
+# start is 0 and the default value of end is len(i_lst) - 1.
+# In case the value of end is out of range the sum must be calculated
+# all the way to the last element of the list.
+def range_in_list(lst, start=0,end=None):
+    if end == None:
+        end = len(lst)
+    return sum(lst[start:end+1])
+
+# Testing
+#print(range_in_list([1,2,3,4],0,2)) #  6
+#print(range_in_list([1,2,3,4],0,3)) # 10
+#print(range_in_list([1,2,3,4],1)) #  9
+#print(range_in_list([1,2,3,4])) # 10
+#print(range_in_list([1,2,3,4],0,100)) # 10
+#print(range_in_list([],0,1)) # 0
+
