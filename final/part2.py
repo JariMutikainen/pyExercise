@@ -144,3 +144,46 @@ def range_in_list(lst, start=0,end=None):
 #print(range_in_list([1,2,3,4],0,100)) # 10
 #print(range_in_list([],0,1)) # 0
 
+# 8. Write a function same_frequency(), which takes in two integers. It returns
+# True, if both integers contain the same frequency of numbers.
+# See the examples below:
+# same_frequency(551122,221515) # True
+# same_frequency(321142,3212215) # False
+# same_frequency(1212, 2211) # True
+def same_frequency(num1, num2):
+    freqs1 = [0,0,0,0,0,0,0,0,0,0] 
+    freqs2 = [0,0,0,0,0,0,0,0,0,0] 
+    str1 = str(num1)
+    str2 = str(num2)
+    for ch in str1:
+        freqs1[int(ch)] += 1
+    for ch in str2:
+        freqs2[int(ch)] += 1
+    #return not cmp(freqs1, freqs2)
+    return all(val1 == val2 for val1, val2 in zip(freqs1, freqs2))
+
+
+# Testing
+#print(same_frequency(551122,221515)) # True
+#print(same_frequency(321142,3212215)) # False
+#print(same_frequency(1212, 2211)) # True
+
+# 9. Write a function nth(), which takes in a list and an index. It returns
+# the element at that index. If the index is negative it returns the nth
+# value starting from the end of the list.
+# nth(['a', 'b', 'c', 'd'], 1)  # 'b'
+# nth(['a', 'b', 'c', 'd'], -2) #  'c'
+# nth(['a', 'b', 'c', 'd'], 0)  # 'a'
+# nth(['a', 'b', 'c', 'd'], -4) #  'a'
+# nth(['a', 'b', 'c', 'd'], -1) #  'd'
+# nth(['a', 'b', 'c', 'd'], 3)  # 'd'
+def nth(lst, index):
+    return lst[index]
+
+# Testing
+#print(nth(['a', 'b', 'c', 'd'], 1))  # 'b'
+#print(nth(['a', 'b', 'c', 'd'], -2)) #  'c'
+#print(nth(['a', 'b', 'c', 'd'], 0))  # 'a'
+#print(nth(['a', 'b', 'c', 'd'], -4)) #  'a'
+#print(nth(['a', 'b', 'c', 'd'], -1)) #  'd'
+#print(nth(['a', 'b', 'c', 'd'], 3))  # 'd'
