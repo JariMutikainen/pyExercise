@@ -187,3 +187,25 @@ def nth(lst, index):
 #print(nth(['a', 'b', 'c', 'd'], -4)) #  'a'
 #print(nth(['a', 'b', 'c', 'd'], -1)) #  'd'
 #print(nth(['a', 'b', 'c', 'd'], 3))  # 'd'
+
+# 10. Write a function find_the_duplicate(). It takes in a list of numbers
+# and returns the one, that appears in the list twice. In case there is no
+# such number there, the function returns None.
+# find_the_duplicate([1,2,1,4,3,12]) # 1
+# find_the_duplicate([6,1,9,5,3,4,9]) # 9
+# find_the_duplicate([2,1,3,4]) # None
+
+def find_the_duplicate(lst):
+    seen_before = []
+    for n in lst:
+        if n in seen_before:
+            return n
+        else:
+            seen_before += [n]
+    return None
+
+
+# Testing
+#print(find_the_duplicate([1,2,1,4,3,12])) # 1
+#print(find_the_duplicate([6,1,9,5,3,4,9])) # 9
+#print(find_the_duplicate([2,1,3,4])) # None
