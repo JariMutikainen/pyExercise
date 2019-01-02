@@ -113,3 +113,23 @@ def two_oldest_ages(ages):
 #print(two_oldest_ages( [1, 2, 10, 8] )) # [8, 10]
 #print(two_oldest_ages( [6,1,9,10,4] )) # [9,10]
 #print(two_oldest_ages( [4,25,3,20,19,5] )) # [20,25]
+
+# 5. Write a function is_odd_string(string), which returns True if the sum
+# of the characters of the string is odd. The string consists of a-z and
+# 'a' = 1, 'b' = 2, etc.
+import string
+
+def is_odd_string(text):
+    alphabet = list(string.ascii_lowercase)
+    alpha_dict = {k: v for v, k in enumerate(alphabet, start=1)}
+    res = 0
+    for ch in text:
+        res += alpha_dict[ch]
+    return res % 2 == 1
+
+# Testing
+#print(is_odd_string('a')) # True
+#print(is_odd_string('aaaa')) # False
+#print(is_odd_string('amazing')) # True
+#print(is_odd_string('veryfun')) # True
+#print(is_odd_string('veryfunny')) # False
