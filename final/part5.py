@@ -7,13 +7,16 @@ import re
 
 def valid_parentheses(parens):
     regexp = re.compile(r'\(\s*\)')
-    print(f'Before: {parens}')
-    parens = regexp.sub('  ', parens)
-    print(f'After:  {parens}')
+    success = 1
+    while success:
+        print(f'Before: {parens}')
+        parens, success = regexp.subn('  ', parens)
+        print(f'After : {parens}')
+    return not ('(' in parens) and not (')' in parens)
 
 # Testing
 #print(valid_parentheses("()")) # True
-print(valid_parentheses(")(()))")) # False
+#print(valid_parentheses(")(()))")) # False
 #print(valid_parentheses("(")) # False
 #print(valid_parentheses("(())((()())())")) # True
 #print(valid_parentheses('))((')) # False
