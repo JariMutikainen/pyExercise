@@ -7,16 +7,11 @@
 # titleize('oNLy cAPITALIZe fIRSt') # "ONLy CAPITALIZe FIRSt"
 import re
 
-def titleize(i_string):
-    i_words = i_string.split()
-    o_words = []
-    regexp = re.compile(r'\b([a-z])(\S+)\b')
-    for word in i_words:
-        match_obj = regexp.search(word)
-        o_word = match_obj.group(1).upper() + match_obj.group(2)
-        o_words += [o_word]
-
-    return ' '.join(o_words)
+def titleize(string):
+    def repl_func(m):
+        print(m.groups())
+        return m.groups()[0].upper()
+    return re.sub(r'\b([a-z])', repl_func, string)
 
 # Testing
 #print(titleize('this is awesome')) # "This Is Awesome"

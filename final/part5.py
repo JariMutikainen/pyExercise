@@ -88,18 +88,30 @@ def mode(nums):
 # rAvg2 = running_average()
 # rAvg2(1) # 1
 # rAvg2(3) # 2
+#def running_average():
+#    running_average.accumulator = 0
+#    running_average.size = 0
+#
+#    def inner(number):
+#        running_average.accumulator += number
+#        running_average.size += 1
+#        return running_average.accumulator / running_average.size
+#
+#    return inner
+
+
 def running_average():
-    running_average.accumulator = 0
-    running_average.size = 0
+    accumulator = 0
+    size = 0
 
     def inner(number):
-        running_average.accumulator += number
-        running_average.size += 1
-        return running_average.accumulator / running_average.size
+        nonlocal accumulator
+        nonlocal size
+        accumulator += number
+        size += 1
+        return accumulator / size
 
     return inner
-
-
 
 
 # Testing
