@@ -76,3 +76,37 @@ def mode(nums):
 
 # Testing
 #print(mode([2,4,1,2,3,3,4,4,5,4,4,6,4,6,7,4])) # 4
+
+# 5. Write a function running-average(), which returns a function. When the
+# returned function is called it returns a running average of all the previous
+# calls plus this one. Like so:
+# rAvg = running_average()
+# rAvg(10) # 10.0
+# rAvg(11) # 10.5
+# rAvg(12) # 11
+# 
+# rAvg2 = running_average()
+# rAvg2(1) # 1
+# rAvg2(3) # 2
+def running_average():
+    running_average.accumulator = 0
+    running_average.size = 0
+
+    def inner(number):
+        running_average.accumulator += number
+        running_average.size += 1
+        return running_average.accumulator / running_average.size
+
+    return inner
+
+
+
+
+# Testing
+#rAvg = running_average()
+#print(rAvg(10)) # 10.0
+#print(rAvg(11)) # 10.5
+#print(rAvg(12)) # 11
+#rAvg2 = running_average()
+#print(rAvg2(1)) # 1
+#print(rAvg2(3)) # 2
