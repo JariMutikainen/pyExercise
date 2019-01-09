@@ -9,4 +9,11 @@ Validation exercises:
     or as a valid RGB hex color code. But then again, it was not too big 
     a deal to google the missing pieces of information from the web...
 
-
+Searching exercises:
+    - I liked the fact that you had actually provided the lines of code 
+    for reading in the contents of the input file 'dictionary.txt'.
+    It speeded up getting started with the exercises. After all
+    the purpose of these exercises is to learn to use the
+    regexps in Python. From that point of view having to first figure out how
+    to get the input data into the functions would have just been an
+    unnecessary distraction from the intended focus. 
