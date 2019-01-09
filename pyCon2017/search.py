@@ -59,10 +59,19 @@ def possible_words(partial_word, dictionary=dictionary):
 
 def five_repeats(letter, dictionary=dictionary):
     """Return all words with at least five occurrences of the given letter."""
-
+    words = (word for word in dictionary.split() if word.count(letter) > 4)
+    words_str = ' '.join(words)
+    return re.findall(r'\b[a-zA-Z]+\b', words_str)
 
 def abbreviate(phrase):
     """Return an acronym for the given phrase."""
+    capitals = re.findall(r'[A-Z]+', phrase)
+    if capitals:
+        return ''.join(capitals)
+    else:
+        firsts = (word[0] for word in phrase.split())
+        abbr_string = ''.join(firsts)
+        return abbr_string.upper()
 
 
 def palindrome5(dictionary=dictionary):
