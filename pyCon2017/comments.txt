@@ -1,0 +1,12 @@
+Validation exercises:
+    - 'validation.py' contains the  exercises 'is_number' and 'is_hex_color' at
+    the end of the file. These functions were covered by the 'test.py'
+    unittests correctly, but the instructions for them were missing in
+
+    http://pycon2017.regex.training/exercises.html
+
+    Thus it was a little unclear to me what it takes to qualify as a number 
+    or as a valid RGB hex color code. But then again, it was not too big 
+    a deal to google the missing pieces of information from the web...
+
+
