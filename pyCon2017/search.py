@@ -36,10 +36,12 @@ def tetravocalic(dictionary=dictionary):
 
 def hexadecimal(dictionary=dictionary):
     """Return a list of all words consisting solely of the letters A to F."""
+    return re.findall(r'\b[a-fA-F]+\b', dictionary)
 
 
 def hexaconsonantal(dictionary=dictionary):
     """Return a list of all words with six consecutive consonants."""
+    return re.findall(r'\b[a-zA-Z]*[^aeiouAEIOU]{6}[a-zA-Z]*\b', dictionary)
 
 
 def possible_words(partial_word, dictionary=dictionary):
@@ -50,7 +52,10 @@ def possible_words(partial_word, dictionary=dictionary):
         C_T (cat, cot, cut)
         _X_ (axe)
     """
-
+    search_string = partial_word.replace('_','.').lower()
+    pattern = r'\b' + search_string + r'\b'
+    regexp = re.compile(pattern)
+    return re.findall(regexp, dictionary)
 
 def five_repeats(letter, dictionary=dictionary):
     """Return all words with at least five occurrences of the given letter."""
