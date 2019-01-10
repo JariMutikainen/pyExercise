@@ -77,6 +77,9 @@ def abbreviate(phrase):
 def palindrome5(dictionary=dictionary):
     """Return a list of all five letter palindromes."""
 
+    return [word for word in re.split(r'\W+', dictionary) 
+            if len(word) == 5 and word == word[::-1]]
+
 
 def double_double(dictionary=dictionary):
     """
@@ -87,6 +90,13 @@ def double_double(dictionary=dictionary):
     - assessed
     - voodoo
     """
+    regexp = re.compile(r'\b\w*([a-zA-Z])\1.\1\1\w*\b')
+    found = []
+    for word in re.split(r'\W+', dictionary): 
+        match = re.search(regexp, word)
+        if match:
+            found += [match.group()]
+    return found
 
 
 def repeaters(dictionary=dictionary):
@@ -98,3 +108,12 @@ def repeaters(dictionary=dictionary):
     - cancan
     - murmur
     """
+    regexp = re.compile(r'\b\w*([a-zA-Z]{2,})\w*\1\w*\b')
+    found = []
+    for word in re.split(r'\W+', dictionary): 
+        match = re.search(regexp, word)
+        if match:
+            found += [match.group()]
+    return found
+
+print(repeaters("gaga for bonbons"))

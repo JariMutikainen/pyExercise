@@ -17,3 +17,17 @@ Searching exercises:
     regexps in Python. From that point of view having to first figure out how
     to get the input data into the functions would have just been an
     unnecessary distraction from the intended focus. 
+
+    - I noticed one error in your 'search_test.py'. In the RepeatersTests
+    on the line 209 you have:
+
+    def test_whole_word(self):
+        sentence = "gaga for bonbons"
+        self.assertEqual(repeaters(sentence), ['gaga'])
+
+    The assert here is incorrect. It should be:
+    
+        self.assertEqual(repeaters(sentence), ['gaga', 'bonbons'])
+
+    instead.
+
