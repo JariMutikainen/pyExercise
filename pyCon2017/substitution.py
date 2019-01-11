@@ -4,7 +4,7 @@ Substitution Exercises
 These functions return a new altered version of the given string.
 
 """
-
+import re
 
 def get_extension(filename):
     """Return the file extension for a full file path."""
@@ -12,10 +12,12 @@ def get_extension(filename):
 
 def normalize_jpeg(filename):
     """Return the filename with jpeg extensions normalized."""
+    return re.sub(r'\.(jpeg|jpg)$', '.jpg', filename, flags=re.IGNORECASE)
 
 
 def normalize_whitespace(string):
     """Replace all runs of whitespace with a single space."""
+    return re.sub(r'(\s+)', ' ', string)
 
 
 def compress_blank_lines(string, max_blanks):
