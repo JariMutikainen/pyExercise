@@ -22,8 +22,13 @@ def normalize_whitespace(string):
 
 def compress_blank_lines(string, max_blanks):
     """Compress N or more empty lines into just N empty lines."""
+    def limited_blanks(m):
+        if len(m.group(2)) <= max_blanks + 1:
+            return m.group()
+        else:
+            return m.group(1) + m.group(2)[:max_blanks + 1]
 
-#print(compress_blank_lines("a\n\n\n\nb\n\n\nc", max_blanks=2))
+    return re.sub(r'(\w*)(\n+)', limited_blanks, string)
 
 
 def normalize_domain(string):

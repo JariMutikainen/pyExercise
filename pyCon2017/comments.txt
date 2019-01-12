@@ -1,15 +1,5 @@
-Validation exercises:
-    - 'validation.py' contains the  exercises 'is_number' and 'is_hex_color' at
-    the end of the file. These functions were covered by the 'test.py'
-    unittests correctly, but the instructions for them were missing in
 
-    http://pycon2017.regex.training/exercises.html
-
-    Thus it was a little unclear to me what it takes to qualify as a number 
-    or as a valid RGB hex color code. But then again, it was not too big 
-    a deal to google the missing pieces of information from the web...
-
-Searching exercises:
+About the Searching exercises:
     - I liked the fact that you had actually provided the lines of code 
     for reading in the contents of the input file 'dictionary.txt'.
     It speeded up getting started with the exercises. After all
@@ -30,4 +20,13 @@ Searching exercises:
         self.assertEqual(repeaters(sentence), ['gaga', 'bonbons'])
 
     instead.
+
+In general I found your video from pyCon2017 very thorough. Personally I liked 
+the most the part in which you explained the concepts of 'greedyness' and
+'non-greedyness' of the regexp pattern matching - and how to alter it.
+I just never had had the patience to learn this detail of the pattern matching
+on my own. Demonstrating on-the-fly the effect of adding '?' after '+', '*'
+or '?' made it all absolutely clear to me now. So I thank you for that.
+
+
 
