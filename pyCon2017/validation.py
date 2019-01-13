@@ -50,7 +50,3 @@ def is_hex_color(string):
 
     return bool(re.search(regexp, string))
 
-#print(is_hex_color('#6349'))
-#print(is_hex_color('#AA6349'))
-#print(is_hex_color('#abc'))
-#is_hex_color('#6349')

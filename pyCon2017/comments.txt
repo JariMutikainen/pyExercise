@@ -8,24 +8,33 @@ About the Searching exercises:
     to get the input data into the functions would have just been an
     unnecessary distraction from the intended focus. 
 
-    - I noticed one error in your 'search_test.py'. In the RepeatersTests
-    on the line 209 you have:
+    - In the case of returning a list of all the 5-letter palindromes in
+    a given input string I would have expected the regexp with back
+    referencing to be the optimum of doing it. The regexp solution
+    looks like this:
 
-    def test_whole_word(self):
-        sentence = "gaga for bonbons"
-        self.assertEqual(repeaters(sentence), ['gaga'])
+    def palindrome5(dictionary=dictionary):
+        """Return a list of all five letter palindromes."""
+        matches = re.finditer(r'\b(\w)(\w)\w\2\1\b', dictionary)
+        return [m.group() for m in matches]
 
-    The assert here is incorrect. It should be:
-    
-        self.assertEqual(repeaters(sentence), ['gaga', 'bonbons'])
+    However, one could argue, that a solution without back referencing
+    (as shown below) would be easier to read/understand.
 
-    instead.
+    def palindrome5(dictionary=dictionary):
+        """Return a list of all five letter palindromes."""
+        return [word for word in re.split(r'\W+', dictionary) 
+                if len(word) == 5 and word == word[::-1]]
+
+    It may be just a matter of taste though.
+
+
 
 In general I found your video from pyCon2017 very thorough. Personally I liked 
 the most the part in which you explained the concepts of 'greedyness' and
 'non-greedyness' of the regexp pattern matching - and how to alter it.
 I just never had had the patience to learn this detail of the pattern matching
-on my own. Demonstrating on-the-fly the effect of adding '?' after '+', '*'
+before. Demonstrating on-the-fly the effect of adding '?' after '+', '*'
 or '?' made it all absolutely clear to me now. So I thank you for that.
 
 
