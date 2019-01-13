@@ -4,7 +4,7 @@ Lookahead Exercises
 These functions could be made using lookaheads and/or lookbehinds.
 
 """
-
+import re
 
 with open('dictionary.txt') as dict_file:
     dictionary = dict_file.read()
@@ -12,6 +12,9 @@ with open('dictionary.txt') as dict_file:
 
 def have_all_vowels(dictionary=dictionary):
     """Return all words at most 9 letters long that contain all vowels."""
+    rex = re.compile(r'\b[aeiouAEIOU]+\b') 
+    return [word for word in re.split(r'\W+', dictionary)
+            if len(word) < 10 and bool(re.search(rex, word))]
 
 
 def no_repeats(dictionary=dictionary):
