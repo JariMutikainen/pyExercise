@@ -33,18 +33,20 @@ def no_repeats(dictionary=dictionary):
 
 def to_pig_latin(phrase):
     """Convert English phrase to Pig Latin."""
-    rex = re.compile(r'\b([^aeiou]+u?)(\w+)\b')
+    rex1 = re.compile(r'\b([^aeiouq]*qu?)(\w+)\b')
+    rex2 = re.compile(r'\b([^aeiou]+)(\w+)\b')
     pig_words = []
     for word in re.split(r'\W+', phrase):
         if word[0] in 'aeiou':
             pig_words.append(word + 'ay')
         else:
-            mo = rex.search(word)
-            pig_words.append(mo.group(2) + mo.group(1) + 'ay')
-        #print(pig_words)
+            mo1 = rex1.search(word)
+            mo2 = rex2.search(word)
+            if mo1:
+                pig_words.append(mo1.group(2) + mo1.group(1) + 'ay')
+            else:
+                pig_words.append(mo2.group(2) + mo2.group(1) + 'ay')
     return ' '.join(pig_words)
-
-print(to_pig_latin('pig squeack trust quack enqueue'))
 
 
 def encode_ampersands(phrase):
