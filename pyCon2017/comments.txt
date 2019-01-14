@@ -10,8 +10,8 @@ About the Searching exercises:
 
     - In the case of returning a list of all the 5-letter palindromes in
     a given input string I would have expected the regexp with back
-    referencing to be the optimum of doing it. The regexp solution
-    looks like this:
+    referencing to be the optimal way of doing it. The regexp solution
+    with back referencing looks like this:
 
     def palindrome5(dictionary=dictionary):
         """Return a list of all five letter palindromes."""
@@ -26,16 +26,43 @@ About the Searching exercises:
         return [word for word in re.split(r'\W+', dictionary) 
                 if len(word) == 5 and word == word[::-1]]
 
-    It may be just a matter of taste though.
+    It is a matter of taste though.
 
 
 
 In general I found your video from pyCon2017 very thorough. Personally I liked 
 the most the part in which you explained the concepts of 'greedyness' and
 'non-greedyness' of the regexp pattern matching - and how to alter it.
-I just never had had the patience to learn this detail of the pattern matching
+I just never had had the patience to grasp this part of the pattern matching
 before. Demonstrating on-the-fly the effect of adding '?' after '+', '*'
-or '?' made it all absolutely clear to me now. So I thank you for that.
+or '?' really made it all absolutely clear to me now. So I thank you for that.
 
+Too bad the time available for your pyCon tutorial was too limited for you
+to cover the regexp lookarounds. I searched the youtube for further information
+about this topic and I was able to find only one video, which managed to explain
+properly the fact, that the regexp lookarounds never consume any characters
+in the string - and this being the key difference between the non-capturing
+groups and the lookaround groups.
+
+It took me a week to work through (almost) all the exercises. The ones in
+the 'lookahead.py' were the most difficult ones. It would be
+interesting to see the solutions to the following two exercises:
+
+def no_repeats(dictionary=dictionary):
+    """Return all words with 10 or more letters and no repeating letters."""
+
+def to_pig_latin(phrase):
+    """Convert English phrase to Pig Latin."""
+
+I was able to solve these on my own, but I  burned about 15 lines of 
+code for each of them - and I failed taking advantage of the regexp
+lookarounds. This left me wondering if there are any smarter
+solutions there.
+
+The  most significant takeaways from this material for me personally were 
+the concepts of greedyness vs. non-greedyness and the regexp lookarounds.
+Everything else I'd worked with before during my earlier perl years.
+
+All in all this refreshed my memory a lot.
 
 

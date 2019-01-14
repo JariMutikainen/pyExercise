@@ -55,10 +55,22 @@ def encode_ampersands(phrase):
 
 def camel_to_underscore(camel_string):
     """Convert camelCase strings to under_score."""
+    def snake_case(mo):
+        return '_' + mo.group(1).lower()
+    return re.sub(r'([A-Z])(?=[a-z])', snake_case, camel_string).lower()
 
 
 def get_inline_links(markdown):
     """Return a list of all inline links."""
+    candidates = re.split(r'[\t\n ]+', markdown)
+    rex = re.compile(r'\[(\w+)\]\((https?://(\w+\.)?\w+\.\w+)\)')
+    tuple_list = []
+    for item in candidates:
+        if item: # Skip empty strings
+            mo = re.search(rex, item)
+            if mo.group():
+                tuple_list.append((mo.group(1), mo.group(2)))
+    return tuple_list
 
 
 def find_broken_links(markdown):
